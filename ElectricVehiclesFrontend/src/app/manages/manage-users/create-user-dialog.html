@@ -1,0 +1,47 @@
+<form [formGroup]="createForm" (ngSubmit)="submit()" novalidate>
+    <div mat-dialog-content style="overflow-y: hidden;">
+        <p style="text-align: center;"><b>Create an user</b></p>
+        <mat-form-field class="form-field" style="width: 248px;" appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username" required>
+            <mat-error *ngIf="createForm.controls.email?.touched && createForm.controls.email?.invalid">
+                <span *ngIf="createForm.controls.email.errors?.required">This field is mandatory.</span>
+                <span *ngIf="createForm.controls.email.errors?.pattern">This field is invalid.</span>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="form-field" style="width: 248px;" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" required>
+            <mat-error *ngIf="createForm.controls.email.touched && createForm.controls.email.invalid">
+                <span *ngIf="createForm.controls.email.errors?.required">This field is mandatory.</span>
+                <span *ngIf="createForm.controls.email.errors?.pattern">This field is invalid.</span>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="form-field" style="width: 248px;" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" required>
+            <mat-icon matSuffix (click)="hide = !hide" style="cursor: pointer;">{{hide ? 'visibility_off' :
+                'visibility'}}</mat-icon>
+            <mat-error *ngIf="createForm.controls.email.touched && createForm.controls.email.invalid">
+                <span *ngIf="createForm.controls.email.errors?.required">This field is mandatory.</span>
+                <span *ngIf="createForm.controls.email.errors?.pattern">This field is invalid.</span>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="form-field" style="width: 248px;" appearance="outline">
+            <mat-label>Role</mat-label>
+            <input matInput formControlName="role" required>
+            <mat-error *ngIf="createForm.controls.email.touched && createForm.controls.email.invalid">
+                <span *ngIf="createForm.controls.email.errors?.required">This field is mandatory.</span>
+                <span *ngIf="createForm.controls.email.errors?.pattern">This field is invalid.</span>
+            </mat-error>
+        </mat-form-field>
+        <br>
+    </div>
+    <div mat-dialog-actions style="display: flex; justify-content: space-between;">
+        <button mat-button (click)="onNoClick()" cdkFocusInitial>Exit</button>
+        <button mat-button [mat-dialog-close]="data" type="submit">Ok</button>
+    </div>
+</form>

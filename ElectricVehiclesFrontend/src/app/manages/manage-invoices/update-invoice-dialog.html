@@ -1,0 +1,26 @@
+<form [formGroup]="updateForm" (ngSubmit)="submit()" autocomplete="on" novalidate>
+    <div mat-dialog-content style="overflow-y: hidden;">
+        <p style="text-align: center;"><b>Update the invoice selected</b></p>
+        <mat-form-field class="form-field" style="width: 248px;" appearance="outline">
+            <mat-label>Total Price</mat-label>
+            <input matInput formControlName="totalPrice" required>
+            <mat-error *ngIf="updateForm.controls.paid.touched && updateForm.controls.paid.invalid">
+                <span *ngIf="updateForm.controls.paid.errors?.required">This field is mandatory.</span>
+                <span *ngIf="updateForm.controls.paid.errors?.pattern">This field is invalid.</span>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="form-field" style="width: 248px;" appearance="outline">
+            <mat-label>Paid</mat-label>
+            <input matInput formControlName="paid" required>
+            <mat-error *ngIf="updateForm.controls.paid.touched && updateForm.controls.paid.invalid">
+                <span *ngIf="updateForm.controls.paid.errors?.required">This field is mandatory.</span>
+                <span *ngIf="updateForm.controls.paid.errors?.pattern">This field is invalid.</span>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions style="display: flex; justify-content: space-between;">
+        <button mat-button (click)="onNoClick()" cdkFocusInitial>Exit</button>
+        <button mat-button [mat-dialog-close]="data" type="submit">Ok</button>
+    </div>
+</form>

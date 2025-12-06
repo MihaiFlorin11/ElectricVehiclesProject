@@ -1,0 +1,72 @@
+<div class="toolbar mat-elevation-z8">
+    <button mat-button class="home_button" routerLink = "/admin-main-page" routerLinkActive="active" aria-hidden="true" style="cursor: pointer">
+      <mat-icon aria-hidden="false">home</mat-icon>
+    </button>
+    <button mat-button class="exit_to_app_button" routerLink = "/login" routerLinkActive="active" aria-hidden="true" style="cursor: pointer">
+      <mat-icon aria-hidden="true" style="cursor: pointer">exit_to_app</mat-icon>
+    </button>
+  </div>
+  
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> <b>Id</b> </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="vehicleType">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="vehicleType"> <b>Vehicle Type</b> </th>
+        <td mat-cell *matCellDef="let element"> {{element.vehicleType}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="username"> <b>Username</b> </th>
+        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="paidInvoice">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="paidInvoice"> <b>Paid Invoice</b> </th>
+        <td mat-cell *matCellDef="let element"> {{element.paidInvoice}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="startDateTime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="startDateTime"> <b>Start Date Time</b> </th>
+        <td mat-cell *matCellDef="let element"> {{element.startDateTime}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="endDateTime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="endDateTime"> <b>End Date Time</b> </th>
+        <td mat-cell *matCellDef="let element"> {{element.endDateTime}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="actions"> <b>Actions</b> </th>
+        <td mat-cell *matCellDef="let element; let i = index">
+          <button mat-button class="view_rental" (click)="openDialogForView(i + 1 + this.paginator.pageIndex * this.paginator.pageSize)">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <!-- <button mat-button class="edit_rental" (click)="openDialogForUpdate(i + 1 + this.paginator.pageIndex * this.paginator.pageSize, element.startDateTime, element.endDateTime)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-button class="delete_rental" (click)="openDialogForDelete(i + 1 + this.paginator.pageIndex * this.paginator.pageSize)">
+            <mat-icon>delete</mat-icon>
+          </button> -->
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="add">
+        <th mat-header-cell *matHeaderCellDef> 
+          <b>
+            <!-- <button mat-button class="add_circle_outline create_rental" (click)="openDialogForCreate()">
+              <mat-icon>add_circle_outline</mat-icon>
+            </button> -->
+          </b>
+        </th>
+        <td mat-cell *matCellDef="let element">
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

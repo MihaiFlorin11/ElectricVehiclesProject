@@ -1,0 +1,53 @@
+<form [formGroup]="createForm" (ngSubmit)="submit()" novalidate>
+    <div mat-dialog-content>
+        <p style="text-align: center;"><b>Create a rental</b></p>
+        <mat-form-field class="form-field" style="width: 248px;" appearance="outline">
+            <mat-label>Vehicle Id</mat-label>
+            <input matInput formControlName="vehicleId" required>
+            <mat-error *ngIf="createForm.controls.vehicleId?.touched && createForm.controls.vehicleId?.invalid">
+                <span *ngIf="createForm.controls.vehicleId.errors?.required">This field is mandatory.</span>
+                <span *ngIf="createForm.controls.vehicleId.errors?.pattern">This field is invalid.</span>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="form-field" style="width: 248px;" appearance="outline">
+            <mat-label>User Id</mat-label>
+            <input matInput formControlName="userId" required>
+            <mat-error *ngIf="createForm.controls.userId.touched && createForm.controls.userId.invalid">
+                <span *ngIf="createForm.controls.userId.errors?.required">This field is mandatory.</span>
+                <span *ngIf="createForm.controls.userId.errors?.pattern">This field is invalid.</span>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="form-field" style="width: 248px;" appearance="outline">
+            <mat-label>Invoice Id</mat-label>
+            <input matInput formControlName="invoiceId" required>
+            <mat-error *ngIf="createForm.controls.invoiceId.touched && createForm.controls.invoiceId.invalid">
+                <span *ngIf="createForm.controls.invoiceId.errors?.required">This field is mandatory.</span>
+                <span *ngIf="createForm.controls.invoiceId.errors?.pattern">This field is invalid.</span>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="form-field" style="width: 248px;" appearance="outline">
+            <mat-label>Start Date Time</mat-label>
+            <input matInput formControlName="startDateTime" required>
+            <mat-error *ngIf="createForm.controls.startDateTime.touched && createForm.controls.startDateTime.invalid">
+                <span *ngIf="createForm.controls.startDateTime.errors?.required">This field is mandatory.</span>
+                <span *ngIf="createForm.controls.startDateTime.errors?.pattern">This field is invalid.</span>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="form-field" style="width: 248px;" appearance="outline">
+            <mat-label>End Date Time</mat-label>
+            <input matInput formControlName="endDateTime" required>
+            <mat-error *ngIf="createForm.controls.endDateTime.touched && createForm.controls.endDateTime.invalid">
+                <span *ngIf="createForm.controls.endDateTime.errors?.required">This field is mandatory.</span>
+                <span *ngIf="createForm.controls.endDateTime.errors?.pattern">This field is invalid.</span>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions style="display: flex; justify-content: space-between;">
+        <button mat-button (click)="onNoClick()" cdkFocusInitial>Exit</button>
+        <button mat-button [mat-dialog-close]="data" type="submit">Ok</button>
+    </div>
+</form>

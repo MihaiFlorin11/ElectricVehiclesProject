@@ -1,0 +1,46 @@
+.toolbar {
+    background: #FFB300;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.home_button {
+    transform: scale(1.5);
+}
+
+.exit_to_app_button {
+    transform: scale(1.5);
+}
+
+.create_invoice {
+    transform: scale(1.3);
+}
+
+.view_invoice {
+    transform: scale(1.3);
+}
+
+.edit_invoice {
+    transform: scale(1.3);
+}
+
+.delete_invoice {
+    transform: scale(1.3);
+}
+
+.totalPrice {
+    padding-left: 1px;
+}
+
+.paid {
+    padding-left: 10px;
+}
+
+.actions {
+    padding-left: 17px;
+}

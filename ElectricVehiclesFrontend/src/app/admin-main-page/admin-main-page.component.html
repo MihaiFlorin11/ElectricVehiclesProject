@@ -1,0 +1,18 @@
+<div class="toolbar mat-elevation-z8">
+    <button mat-button class="home_button">
+        <mat-icon aria-hidden="false">home</mat-icon>
+    </button>
+    <button mat-button class="exit_to_app_button" routerLink = "/login" routerLinkActive="active" aria-hidden="true" style="cursor: pointer">
+        <mat-icon aria-hidden="false">exit_to_app</mat-icon>
+    </button>
+</div>
+
+<div class="container">
+    <div class="sidenav">
+        <button mat-raised-button class="manage_vehicle_types" [routerLink]="['/manage-vehicle-types']">Manage Vehicle Types</button>
+        <button mat-raised-button class="manage_users" [routerLink]="['/manage-users']">Manage Users</button>
+        <button mat-raised-button class="manage_vehicles" [routerLink]="['/manage-vehicles']">Manage Vehicles</button>
+        <button mat-raised-button class="manage_invoices" [routerLink]="['/manage-invoices']">Manage Invoices</button>
+        <button mat-raised-button class="manage_rentals" [routerLink]="['/manage-rentals']">Manage Rentals</button>
+    </div>
+</div>

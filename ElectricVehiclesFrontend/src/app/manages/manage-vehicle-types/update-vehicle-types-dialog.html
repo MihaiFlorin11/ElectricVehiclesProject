@@ -1,0 +1,35 @@
+<form [formGroup]="updateForm" autocomplete="on" (ngSubmit)="submit()" novalidate>
+    <div mat-dialog-content style="overflow-y: hidden;">
+        <p style="text-align: center;"><b>Update the vehicle type selected</b></p>
+        <mat-form-field class="form-field" style="width: 248px;" appearance="outline">
+            <mat-label>Description</mat-label>
+            <input matInput formControlName="description" required>
+            <mat-error *ngIf="updateForm.controls.email && updateForm.controls.email.invalid">
+                <span *ngIf="updateForm.controls.email.errors?.required">This field is mandatory.</span>
+                <span *ngIf="updateForm.controls.email.errors?.pattern">This field is invalid.</span>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="form-field" style="width: 248px;" appearance="outline">
+            <mat-label>Type</mat-label>
+            <input matInput formControlName="type" required>
+            <mat-error *ngIf="updateForm.controls.email && updateForm.controls.email.invalid">
+                <span *ngIf="updateForm.controls.email.errors?.required">This field is mandatory.</span>
+                <span *ngIf="updateForm.controls.email.errors?.pattern">This field is invalid.</span>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="form-field" style="width: 248px;" appearance="outline">
+            <mat-label>Price Per Minute</mat-label>
+            <input matInput formControlName="pricePerMinute" required>
+            <mat-error *ngIf="updateForm.controls.email && updateForm.controls.email.invalid">
+                <span *ngIf="updateForm.controls.email.errors?.required">This field is mandatory.</span>
+                <span *ngIf="updateForm.controls.email.errors?.pattern">This field is invalid.</span>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions style="display: flex; justify-content: space-between;">
+        <button mat-button (click)="onNoClick()" cdkFocusInitial>Exit</button>
+        <button mat-button [mat-dialog-close]="data" type="submit">Ok</button>
+    </div>
+</form>

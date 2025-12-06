@@ -1,0 +1,26 @@
+<form [formGroup]="updateForm" (ngSubmit)="submit()" autocomplete="on" novalidate>
+    <div mat-dialog-content>
+        <p style="text-align: center; overflow-y: hidden;"><b>Update the rental selected</b></p>
+        <mat-form-field class="form-field" style="width: 248px;" appearance="outline">
+            <mat-label>Start Date Time</mat-label>
+            <input matInput formControlName="startDateTime" required>
+            <mat-error *ngIf="updateForm.controls.startDateTime.touched && updateForm.controls.startDateTime.invalid">
+                <span *ngIf="updateForm.controls.startDateTime.errors?.required">This field is mandatory.</span>
+                <span *ngIf="updateForm.controls.startDateTime.errors?.pattern">This field is invalid.</span>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="form-field" style="width: 248px;" appearance="outline">
+            <mat-label>End Date Time</mat-label>
+            <input matInput formControlName="endDateTime" required>
+            <mat-error *ngIf="updateForm.controls.endDateTime.touched && updateForm.controls.endDateTime.invalid">
+                <span *ngIf="updateForm.controls.endDateTime.errors?.required">This field is mandatory.</span>
+                <span *ngIf="updateForm.controls.endDateTime.errors?.pattern">This field is invalid.</span>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions style="display: flex; justify-content: space-between;">
+        <button mat-button (click)="onNoClick()" cdkFocusInitial>Exit</button>
+        <button mat-button [mat-dialog-close]="data" type="submit">Ok</button>
+    </div>
+</form>
